@@ -28,7 +28,7 @@ const medusaConfig = {
   projectConfig: {
     databaseUrl: DATABASE_URL,
     databaseLogging: true,
-    // redisUrl: REDIS_URL,
+    redisUrl: REDIS_URL,
     workerMode: WORKER_MODE,
     http: {
       adminCors: ADMIN_CORS,
