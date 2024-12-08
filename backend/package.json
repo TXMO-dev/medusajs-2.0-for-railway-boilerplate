@@ -18,7 +18,17 @@
     "ib": "init-backend",
     "start": "init-backend && cd .medusa/server && medusa start --verbose",
     "dev": "medusa develop",
-    "email:dev": "email dev --dir=./src/modules/email-notifications/templates --port=3002"
+    "email:dev": "email dev --dir=./src/modules/email-notifications/templates --port=3002",
+    "migrate:prod": "npm run migrate && npm run sync",
+    "start:prod": "medusa start",
+    "seed:prod": "medusa exec ./src/scripts/seed.ts",
+    "migrate": "npx medusa db:migrate",
+    "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
+    "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
+    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
+    "medusa:init": "npm run migrate && npm run sync && npm run seed && npm run add-user",
+    "add-user": "medusa user --email asigbeytimothy@gmail.com --password E@ss44P@ss123_",
+    "sync": "medusa db:sync-links"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "latest",

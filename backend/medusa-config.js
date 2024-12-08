@@ -28,7 +28,7 @@ const medusaConfig = {
   projectConfig: {
     databaseUrl: DATABASE_URL,
     databaseLogging: true,
-    redisUrl: REDIS_URL,
+    // redisUrl: REDIS_URL,
     workerMode: WORKER_MODE,
     http: {
       adminCors: ADMIN_CORS,
@@ -125,7 +125,21 @@ const medusaConfig = {
           },
         ],
       },
-    }] : [])
+    }] : []),
+    {
+      resolve: '@medusajs/medusa/payment',
+      options: {
+        providers: [
+          {
+            resolve: '@medusajs/medusa/payment-stripe',
+            id: 'stripe',
+            options: {
+              apiKey: STRIPE_API_KEY,
+            },
+          },
+        ],
+      },
+    },
   ],
   plugins: []
 };
