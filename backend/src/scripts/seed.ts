@@ -315,7 +315,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
     input: {
       api_keys: [
         {
-          title: 'Storefront',
+          title: 'Storefront',  
           type: 'publishable',
           created_by: '',
         },
